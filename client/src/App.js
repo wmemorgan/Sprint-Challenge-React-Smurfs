@@ -45,7 +45,12 @@ class App extends Component {
         />
         <Route
           path='/smurf-form'
-          render={props => <SmurfForm {...props} updateList={this.updateList} />}
+          render={props => 
+            <SmurfForm 
+              {...props} 
+              updateList={this.updateList}
+              add 
+            />}
         />
       </AppContainer>
 

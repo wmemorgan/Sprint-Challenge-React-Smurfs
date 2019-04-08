@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+import { FormContainer } from '../SharedComponents/FormStyles'
+import Button from '../StyleComponents/Button'
+
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
 
 class SmurfForm extends Component {
@@ -47,7 +50,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <FormContainer>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -67,9 +70,15 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <Button type="submit" {...this.props}>
+            {`${this.props.add ? 'Add' : ''} 
+              ${this.props.update ? 'Update' : ''}  
+              ${this.props.delete ? 'Delete' : ''}   
+              to the village
+            `}
+          </Button>
         </form>
-      </div>
+      </FormContainer>
     );
   }
 }
