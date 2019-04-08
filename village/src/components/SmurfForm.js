@@ -25,6 +25,7 @@ class SmurfForm extends Component {
     axios.post('http://localhost:3333/smurfs', newRecord)
       .then(response => {
         this.props.updateList(response.data)
+        this.props.history.push('/')
       })
       .catch(error => console.log(error))
 
