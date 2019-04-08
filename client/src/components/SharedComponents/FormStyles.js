@@ -10,7 +10,7 @@ export const FormContainer = styled.div`
 
   @media ${breakpoints[0]} {
     width: 100%;
-    font-size ${fontSizing.s};
+    font-size ${fontSizing.sm};
   }
 
   form {

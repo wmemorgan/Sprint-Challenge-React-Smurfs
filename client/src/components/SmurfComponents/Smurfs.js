@@ -6,7 +6,7 @@ const Smurfs = props => {
     const { smurfs } = props
     return (
       <SmurfListContainer>
-        <h1>Smurf Village</h1>
+        <h1>The Smurfs Village</h1>
         {smurfs.length > 0 ? (smurfs.map(smurf => (
           <Link key={smurf.id} to={`/smurfs/${smurf.id}`}>
             <Preview>

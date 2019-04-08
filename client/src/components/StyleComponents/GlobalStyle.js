@@ -5,7 +5,9 @@ import { color, fontStyles, fontSizing } from './theme'
 const GlobalStyle = createGlobalStyle `
 ${normalize}
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,900|Roboto:400,500,700');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+@import url('https://fonts.googleapis.com/css?family=Delius');
+@import url('https://fonts.googleapis.com/css?family=Fresca');
 @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 
 * {
@@ -28,6 +30,7 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-family: ${fontStyles.headingFont};
+  
 }
 
 h1 {

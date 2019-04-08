@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colorScheme, fontSizing, 
+import { colorScheme, fontSizing, fontStyles,
   breakpoints, flex } from '../StyleComponents/theme'
 
 export const HeaderContainer = styled.header`
@@ -11,14 +11,21 @@ export const HeaderContainer = styled.header`
   box-shadow:  1px 1px 1px 0px rgba(89,89,89,1);
   background: ${colorScheme.headerBgColor};
 
+  & a * {
+    font-family: ${fontStyles.headingFont};
+  }
+  
   & * {
     color: ${colorScheme.headerFontColor};
-    font-size: ${fontSizing.xs};
+    font-size: ${fontSizing.m};
+    
 
     & a {
       padding: 8px;
       border-radius: 5px;
       text-transform: uppercase;
+      font-family: ${fontStyles.headingFont};
+      letter-spacing: 0.2rem;
     }
 
     & a.active {
@@ -38,6 +45,10 @@ export const HeaderContainer = styled.header`
   @media ${breakpoints[0]} {
     align-items: flex-start;
     padding-left: 5vw;
+
+    & * {
+      font-size: ${fontSizing.s};
+    }
     
   }
 

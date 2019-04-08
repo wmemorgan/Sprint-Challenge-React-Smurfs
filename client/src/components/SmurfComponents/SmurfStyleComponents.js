@@ -7,8 +7,21 @@ export const SmurfListContainer = styled.div`
   ${flex('column','center','center')}
   max-width: 600px;
   padding: 20px 10px;
+  box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
   background: ${color.lightText};
-  font-size: ${fontSizing.sm};
+  font-size: ${fontSizing.ml};
+
+  h1 {
+    font-size: ${fontSizing.xl};
+    letter-spacing: 0.5rem;
+    color: ${color.accent};
+    
+    text-shadow:
+      -1px -1px 0 ${color.primaryColor},  
+      1px -1px 0 ${color.primaryColor},
+      -1px 1px 0 ${color.primaryColor},
+      1px 1px 0 ${color.primaryColor};
+  }
 
   a {
     text-decoration: none;
@@ -16,8 +29,10 @@ export const SmurfListContainer = styled.div`
   }
 
   @media ${breakpoints[0]} {
+    font-size: ${fontSizing.sm};
+
     h1 {
-      font-size: ${fontSizing.m};
+      font-size: ${fontSizing.ml};
     }
   }
 
@@ -30,8 +45,7 @@ export const Preview = styled.div`
   ${flex('row', 'center', 'space-between')}
   margin: 10px 0;
   padding: 10px;
-  border: 0.5px solid ${color.primaryBgShading};
-  box-shadow:  5px 5px 5px 0px rgba(89,89,89,1);
+  border: 1px solid ${color.defaultFontColor};
   background: ${color.primaryBgShading};
   cursor: pointer;
 
@@ -48,7 +62,6 @@ export const SmurfInfoContainer = styled.div`
   min-width: 300px;
   max-width: 600px;
   margin: 20px 0;
-  
   border-radius: 5px;
   box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
   background: ${color.lightText};
@@ -61,6 +74,10 @@ export const SmurfInfoContainer = styled.div`
     border-radius: 5px 5px 0 0;
     background: linear-gradient(to top, #cccccc 0%, #d6d6d6 1px, #ebebeb 100%); 
     
+    @media ${breakpoints[0]} {
+      padding: 5px;
+    }
+
     i {
         margin: 0 10px;
         font-size: ${fontSizing.xs};
@@ -74,37 +91,39 @@ export const SmurfInfoContainer = styled.div`
 
     h3 {
       margin: 10px 0;
-      font-size: ${fontSizing.m};
-      font-weight: bold;
+      font-size: ${fontSizing.l};
+      letter-spacing: 0.35rem;
       color: ${colorScheme.headingColor};
     }
 
     input:first-child {
       margin: 10px 0;
-      font-size: ${fontSizing.s};
+      font-size: ${fontSizing.ml};
     }
+    
     .smurf-stats {
       display: grid;
       grid-template-columns: 1fr 4fr;
       grid-gap: 10px;
       
       & * {
-        font-size: ${fontSizing.s};
+        font-size: ${fontSizing.ml};
 
         @media ${breakpoints[0]} {
-          font-size: ${fontSizing.xs};
+          font-size: ${fontSizing.m};
         }
       }
 
       .stat-category {
-        font-weight: bold;
+        font-weight: bolder;
+        color: ${color.emphasis};
       }
 
     }
 
     @media ${breakpoints[0]} {
       h3 {
-        font-size: ${fontSizing.sm};
+        font-size: ${fontSizing.ml};
       }
     }
 }
@@ -122,13 +141,12 @@ export const ButtonMenu = styled.nav`
 
   button {
     width: 100px;
-    font-size: ${fontSizing.xs};
+    font-size: ${fontSizing.m};
   }
 
   @media ${breakpoints[0]} {
     button {
-      width: 70px;
-      font-size: ${fontSizing.xxs};
+      font-size: ${fontSizing.s};
       margin-bottom: 20px;
     }
   }
