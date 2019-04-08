@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import './App.css';
 
@@ -32,7 +32,7 @@ class App extends Component {
   deleteSmurf = id => {
     console.log("Smurf is being deleted")
     axios
-      .delete(`${API_ENDPOINT}.netlify/functions/server/api/friends/${id}`)
+      .delete(`${API_ENDPOINT}.netlify/functions/server/api/smurfs/${id}`)
       .then(response => {
         // Update main app state
         this.updateList(response.data)
@@ -98,4 +98,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const AppWithRouter = withRouter(App)
+
+export default AppWithRouter;
