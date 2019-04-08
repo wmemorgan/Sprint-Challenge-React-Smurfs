@@ -1,12 +1,16 @@
 import React from 'react';
 
+import { SmurfInfoContainer } from './SmurfStyleComponents'
+
 const Smurf = props => {
+  const { name, id, age, height } = props.smurf
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
+    <SmurfInfoContainer>
+      <h3>{name}</h3>
+      <p><span className="stat-category">ID:</span> {id}</p>
+      <p><span className="stat-category">Age:</span> {age}</p>
+      <p><span className="stat-category">Height:</span> {height}</p>
+    </SmurfInfoContainer>
   );
 };
 
