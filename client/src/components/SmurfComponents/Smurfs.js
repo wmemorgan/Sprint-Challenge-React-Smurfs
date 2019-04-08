@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { SmurfListContainer, Preview } from './SmurfStyleComponents'
-import Smurf from './Smurf';
 
 const Smurfs = props => {
     const { smurfs } = props
