@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import axios from 'axios'
 import './App.css';
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
+
+import AppContainer from './components/StyleComponents/AppStyles'
+import Header from './components/SharedComponents/Header'
+import SmurfForm from './components/SmurfComponents/SmurfForm';
+import Smurfs from './components/SmurfComponents/Smurfs';
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
 
@@ -34,26 +37,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <nav className="navbar">
-          <ul>
-            <li>
-              <NavLink exact to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/smurf-form">Smurf Form</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <Route 
-          exact path='/' 
+      <AppContainer>
+        <Header />
+        <Route
+          exact path='/'
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
         />
-        <Route 
+        <Route
           path='/smurf-form'
           render={props => <SmurfForm {...props} updateList={this.updateList} />}
         />
-      </div>
+      </AppContainer>
+
     );
   }
 }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
+import { SmurfListContainer, Preview } from './SmurfStyleComponents'
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <SmurfListContainer>
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
@@ -20,7 +21,7 @@ class Smurfs extends Component {
             );
           })}
         </ul>
-      </div>
+      </SmurfListContainer>
     );
   }
 }
