@@ -7,6 +7,7 @@ import AppContainer from './components/StyleComponents/AppStyles'
 import Header from './components/SharedComponents/Header'
 import SmurfForm from './components/SmurfComponents/SmurfForm';
 import Smurfs from './components/SmurfComponents/Smurfs';
+import Smurf from './components/SmurfComponents/Smurf'
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
 
@@ -27,6 +28,18 @@ class App extends Component {
       () => console.log(`updateList invoked state is: `, this.state)
     )
   }
+
+  deleteSmurf = id => {
+    console.log("Smurf is being deleted")
+    axios
+      .delete(`${API_ENDPOINT}.netlify/functions/server/api/friends/${id}`)
+      .then(response => {
+        // Update main app state
+        this.updateList(response.data)
+        this.props.history.push('/')
+      })
+      .catch(err => console.log(err))
+  };
 
  componentDidMount() {
    // Retrieve data from API and load into state
@@ -52,6 +65,33 @@ class App extends Component {
               add 
             />}
         />
+        {this.state.smurfs.map(smurf => (
+          <Route
+            key={smurf.id}
+            path={`/smurfs/${smurf.id}`}
+            render={props =>
+              <Smurf
+                {...props}
+                smurf={smurf}
+                deleteSmurf={this.deleteSmurf}
+              />
+            }
+          />
+        ))}
+        {this.state.smurfs.map(smurf => (
+          <Route
+            key={smurf.id}
+            path={`/update/${smurf.id}`}
+            render={props =>
+              <SmurfForm
+                {...props}
+                smurf={smurf}
+                id={smurf.id}
+                updateList={this.updateList}
+                update
+              />}
+          />
+        ))}        
       </AppContainer>
 
     );
