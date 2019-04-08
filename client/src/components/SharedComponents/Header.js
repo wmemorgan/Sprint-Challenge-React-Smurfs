@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { HeaderContainer, Nav, CrudNav } from './HeaderStyles'
+import { HeaderContainer, Nav } from './HeaderStyles'
 import MobileMenuIcon from '../StyleComponents/MobileMenuIcon'
 import CloseIconMobile from '../StyleComponents/CloseIconMobile'
 

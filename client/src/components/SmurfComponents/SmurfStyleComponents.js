@@ -43,41 +43,60 @@ export const Preview = styled.div`
 `
 
 export const SmurfInfoContainer = styled.div`
-  ${flex('column','flex-start','center')}
+  ${flex('column')};
   width: 80%;
   min-width: 300px;
   max-width: 600px;
   margin: 20px 0;
-  padding: 20px;
+  
   border-radius: 5px;
   box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
   background: ${color.lightText};
 
-  h3 {
-    margin: 5px 0;
-    font-size: ${fontSizing.m};
-    font-weight: bold;
-    color: ${colorScheme.headingColor};
+  header {
+    width: 100%;
+    ${flex('row', 'center', 'flex-end')};
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(to top, #cccccc 0%, #d6d6d6 1px, #ebebeb 100%); 
+    
+    i {
+        margin: 0 10px;
+        font-size: ${fontSizing.xs};
+        cursor: pointer;
+    }
   }
 
-  p {
-    font-size: ${fontSizing.s};
-    margin: 5px 0;
-  }
-
-  .stat-category {
-    font-weight: bold;
-  }
-
-  @media ${breakpoints[0]} {
+  .smurf-info {
+    ${flex('column', 'flex-start', 'center')}
+    padding: 20px;
     h3 {
-      font-size: ${fontSizing.sm};
+      margin: 5px 0;
+      font-size: ${fontSizing.m};
+      font-weight: bold;
+      color: ${colorScheme.headingColor};
     }
 
     p {
-      font-size: ${fontSizing.xs};
+      font-size: ${fontSizing.s};
+      margin: 5px 0;
     }
-  }
+
+    .stat-category {
+      font-weight: bold;
+    }
+
+    @media ${breakpoints[0]} {
+      h3 {
+        font-size: ${fontSizing.sm};
+      }
+
+      p {
+        font-size: ${fontSizing.xs};
+      }
+    }
+}
 
 `
 
