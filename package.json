@@ -6,7 +6,7 @@
   "scripts": {
     "start": "run-p start:**",
     "start:app": "cd village && REACT_APP_API_ENDPOINT='http://localhost:9000/' yarn start",
-    "start:api": "nodemon server.js"
+    "start:api": "node server.js"
   },
   "author": "",
   "license": "ISC",
