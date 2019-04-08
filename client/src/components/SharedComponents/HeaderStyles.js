@@ -13,8 +13,27 @@ export const HeaderContainer = styled.header`
 
   & * {
     color: ${colorScheme.headerFontColor};
-    font-size: ${fontSizing.s};
+    font-size: ${fontSizing.xs};
+
+    & a {
+      padding: 8px;
+      border-radius: 5px;
+      text-transform: uppercase;
+    }
+
+    & a.active {
+      color: ${colorScheme.headerBgColor};
+      background: ${colorScheme.headerFontColor};
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: ${colorScheme.headerBgColor};
+      background: ${colorScheme.headerFontColor};
+    }
   }
+
+
 
   @media ${breakpoints[0]} {
     align-items: flex-start;
@@ -47,7 +66,6 @@ export const Nav = styled.nav`
       padding: 10px 0;
     }
 
-
   }
 
 `
@@ -67,17 +85,6 @@ export const CrudNav = styled.div`
       width: 100%;
       padding: 10px 0;
       border-top: 1px solid ${colorScheme.defaultBorderColor};
-    }
-
-    & a.active {
-      color: ${colorScheme.headerBgColor};
-      background: ${colorScheme.headerFontColor};
-    }
-
-    a:hover {
-      text-decoration: underline;
-      color: ${colorScheme.headerBgColor};
-      background: ${colorScheme.headerFontColor};
     }
   }
 
