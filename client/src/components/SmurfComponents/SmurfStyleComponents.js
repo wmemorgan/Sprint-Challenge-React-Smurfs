@@ -71,29 +71,40 @@ export const SmurfInfoContainer = styled.div`
   .smurf-info {
     ${flex('column', 'flex-start', 'center')}
     padding: 20px;
+
     h3 {
-      margin: 5px 0;
+      margin: 10px 0;
       font-size: ${fontSizing.m};
       font-weight: bold;
       color: ${colorScheme.headingColor};
     }
 
-    p {
+    input:first-child {
+      margin: 10px 0;
       font-size: ${fontSizing.s};
-      margin: 5px 0;
     }
+    .smurf-stats {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      grid-gap: 10px;
+      
+      & * {
+        font-size: ${fontSizing.s};
 
-    .stat-category {
-      font-weight: bold;
+        @media ${breakpoints[0]} {
+          font-size: ${fontSizing.xs};
+        }
+      }
+
+      .stat-category {
+        font-weight: bold;
+      }
+
     }
 
     @media ${breakpoints[0]} {
       h3 {
         font-size: ${fontSizing.sm};
-      }
-
-      p {
-        font-size: ${fontSizing.xs};
       }
     }
 }
@@ -104,7 +115,10 @@ export const ButtonMenu = styled.nav`
   align-self: center;
   width: 80%;
   margin-top: 20px;
-  ${flex('row','center','space-evenly')};
+  display: ${props => !props.edit ? 'none' : 'flex'};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   button {
     width: 100px;
@@ -112,8 +126,6 @@ export const ButtonMenu = styled.nav`
   }
 
   @media ${breakpoints[0]} {
-    ${flex('column', 'center', 'center')};
-
     button {
       width: 70px;
       font-size: ${fontSizing.xxs};
