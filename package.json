@@ -5,8 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "run-p start:**",
-    "start:app": "cd village && REACT_APP_API_ENDPOINT='http://localhost:9000/' yarn start",
-    "start:api": "node server.js"
+    "start:app": "cd client && REACT_APP_API_ENDPOINT='http://localhost:9000/' yarn start",
+    "start:lambda": "netlify-lambda serve api",
+    "prod": "yarn build:lambda; yarn build:app",
+    "build:app": "cd client && yarn install && yarn build",
+    "build:lambda": "netlify-lambda build api"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +17,8 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.14.11",
+    "serverless-http": "^1.9.1"
   },
   "devDependencies": {
     "netlify-lambda": "^1.4.3",
