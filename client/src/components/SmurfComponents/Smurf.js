@@ -63,9 +63,7 @@ class Smurf extends Component {
       age: '',
       height: '',
       edit: false
-    },
-    () => console.log(`CDM current state: `, this.state)
-    )
+    })
   }
 
   render() {

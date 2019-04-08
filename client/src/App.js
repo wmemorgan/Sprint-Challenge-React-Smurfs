@@ -24,13 +24,10 @@ class App extends Component {
 
   // Update state with current API data
   updateList = data => {
-    this.setState({ smurfs: data },
-      () => console.log(`updateList invoked state is: `, this.state)
-    )
+    this.setState({ smurfs: data })
   }
 
   deleteSmurf = id => {
-    console.log("Smurf is being deleted")
     axios
       .delete(`${API_ENDPOINT}.netlify/functions/server/api/smurfs/${id}`)
       .then(response => {
