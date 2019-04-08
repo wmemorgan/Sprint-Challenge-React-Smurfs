@@ -1,11 +1,11 @@
 const theme = {
   color: {
-    primaryColor: 'dodgerblue',
-    primaryDark: '#022140',
+    primaryColor: '#005A9C',
+    primaryDark: '#005A9C',
     primaryBgShading: '#F5F8FA',
     secondaryColor: '#e4e5eb',
     secondaryBgShading: '#C5CAE9',
-    accent: '#51A7F8',
+    accent: 'dodgerblue',
     emphasis: '#212121',
     darkText: '#595959',
     lightText: '#FFFFFF',
@@ -15,7 +15,7 @@ const theme = {
   colorScheme: {
     logoColor: () => { return theme.color.emphasis },
     headerBgColor: () => { return theme.color.lightText },
-    headerFontColor: () => { return theme.color.primaryColor },
+    headerFontColor: () => { return theme.color.accent },
     footerBgColor: () => { return theme.color.primaryColor },
     footerFontColor: () => { return theme.color.lightText },
     headingColor: () => { return theme.color.primaryColor },
