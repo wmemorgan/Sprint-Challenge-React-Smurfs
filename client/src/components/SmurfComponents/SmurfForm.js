@@ -38,6 +38,7 @@ class SmurfForm extends Component {
 
     // reset form fields
     this.setState({
+      id: '',
       name: '',
       age: '',
       height: ''
@@ -52,6 +53,12 @@ class SmurfForm extends Component {
     return (
       <FormContainer>
         <form onSubmit={this.addSmurf}>
+          {(this.props.update || this.props.delete) &&
+            <input name="id" type="number"
+              placeholder="ID" onChange={this.inputChangeHandler}
+              value={this.state.id}
+            />
+          }          
           <input
             onChange={this.handleInputChange}
             placeholder="name"
