@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom'
 import axios from 'axios'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -18,7 +18,7 @@ class App extends Component {
 
   // Update state with current API data
   updateList = data => {
-    this.setState({ friends: data },
+    this.setState({ smurfs: data },
       () => console.log(`updateList invoked state is: `, this.state)
     )
   }
@@ -33,6 +33,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav className="navbar">
+          <ul>
+            <li>
+              <NavLink exact to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/smurf-form">Smurf Form</NavLink>
+            </li>
+          </ul>
+        </nav>
         <Route 
           exact path='/' 
           render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
