@@ -1,9 +1,10 @@
 const express = require('express');
+const serverless = require('serverless-http')
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3333;
 
 const server = express();
+const router = express.Router()
 server.use(bodyParser.json());
 server.use(cors());
 
@@ -21,12 +22,12 @@ let smurfs = [
     height: '8cm'
   }
 ];
-server.get('/smurfs', (req, res) => {
+router.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });
 let smurfId = 1;
 
-server.post('/smurfs', (req, res) => {
+router.post('/smurfs', (req, res) => {
   const { name, age, height } = req.body;
   const newSmurf = { name, age, height, id: smurfId };
   if (!name || !age || !height) {
@@ -50,7 +51,7 @@ server.post('/smurfs', (req, res) => {
   res.json(smurfs);
 });
 
-server.put('/smurfs/:id', (req, res) => {
+router.put('/smurfs/:id', (req, res) => {
   const { id } = req.params;
   const { name, age, height } = req.body;
   const findSmurfById = smurf => {
@@ -67,7 +68,7 @@ server.put('/smurfs/:id', (req, res) => {
   }
 });
 
-server.delete('/smurfs/:id', (req, res) => {
+router.delete('/smurfs/:id', (req, res) => {
   const { id } = req.params;
   const foundSmurf = smurfs.find(smurf => smurf.id == id);
 
@@ -80,7 +81,9 @@ server.delete('/smurfs/:id', (req, res) => {
   }
 });
 
-server.listen(port, err => {
-  if (err) console.log(err);
-  console.log(`server is listening on port ${port}`);
-});
+// route path to lambda
+server.use('/.netlify/functions/server/api', router)
+
+// export to lambda
+module.exports = server
+module.exports.handler = serverless(server)
