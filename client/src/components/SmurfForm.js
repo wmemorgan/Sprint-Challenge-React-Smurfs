@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ class SmurfForm extends Component {
     }
 
     // send new record to api
-    axios.post('http://localhost:3333/smurfs', newRecord)
+    axios.post(`${API_ENDPOINT}.netlify/functions/server/api/smurfs`, newRecord)
       .then(response => {
         this.props.updateList(response.data)
         this.props.history.push('/')

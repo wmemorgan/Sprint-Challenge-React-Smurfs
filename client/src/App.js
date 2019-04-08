@@ -5,6 +5,8 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +27,7 @@ class App extends Component {
 
  componentDidMount() {
    // Retrieve data from API and load into state
-   axios.get('http://localhost:3333/smurfs')
+   axios.get(`${API_ENDPOINT}.netlify/functions/server/api/smurfs`)
     .then(response => this.setState({ smurfs: response.data}))
     .catch(error => console.log(error))
  }
