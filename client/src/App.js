@@ -74,24 +74,11 @@ class App extends Component {
                 {...props}
                 smurf={smurf}
                 deleteSmurf={this.deleteSmurf}
+                updateList={this.updateList}
               />
             }
           />
-        ))}
-        {this.state.smurfs.map(smurf => (
-          <Route
-            key={smurf.id}
-            path={`/update/${smurf.id}`}
-            render={props =>
-              <SmurfForm
-                {...props}
-                smurf={smurf}
-                id={smurf.id}
-                updateList={this.updateList}
-                update
-              />}
-          />
-        ))}        
+        ))}       
       </AppContainer>
 
     );
