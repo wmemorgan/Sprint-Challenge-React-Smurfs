@@ -117,11 +117,5 @@ class Smurf extends Component {
   }
 }
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
-
 export default Smurf;
 
