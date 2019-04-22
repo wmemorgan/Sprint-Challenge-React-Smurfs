@@ -55,7 +55,7 @@ class SmurfForm extends Component {
         <form onSubmit={this.addSmurf}>
           {(this.props.update || this.props.delete) &&
             <input name="id" type="number"
-              placeholder="ID" onChange={this.inputChangeHandler}
+              placeholder="ID" onChange={this.handleInputChange}
               value={this.state.id}
             />
           }          
